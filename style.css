@@ -1,0 +1,53 @@
+    *{
+  font-family:Georgia;
+}
+body{
+ background-color:   #CCCCCC;
+}
+.header{
+  text-align:center;
+  padding:10px;
+  margin:30px;
+  border: 5px solid black;
+  border-radius:20px;
+  width:90%;
+  align:center;
+  margin-left:auto;
+  margin-right:auto;
+  background-color:#999999;
+  color : #0066FF;
+}
+.Lesson{
+  color : #0066FF;
+  text-align:left;
+  padding:10px;
+  margin:30px;
+  border: 5px solid black;
+  border-radius:20px;
+  width:93%;
+  align:center;
+  margin-left:10px;
+  margin-right:auto;
+}
+.Lessontext{
+  color : solid black;
+  text-align:left;
+  padding:10px;
+  margin:30px;
+  border: 5px solid black;
+  border-radius:20px;
+  width:93%;
+  align:center;
+  margin-left:10px;
+  margin-right:auto;
+}
+
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -box-sizing: border-box;
+} 
+.image{
+  app.png="images/app.png"
+}
