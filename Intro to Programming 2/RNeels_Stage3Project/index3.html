@@ -505,52 +505,6 @@
       		find conventions on how to write programs.
     		</p>
 		</div>
-		<div class="Lesson">
-			<h1>Stage 4 Let Anyone Modify</h1>
- 		</div>   
- 		<div class = "Lessontext">
- 		<p> <b>Network</b> is a group of entities that can
- 		 communicate even though they are not directly connected
- 		 . To send a message need to know which nodes or 
- 		 direction to send and who is allowed to use the 
- 		 network and what they get to send. </p>
- 		<p>To make a netork: Way to encode and interpret message (through message and bits), way to route message (routers figure out how to do this), rules for deciding who gets to use resources (best effort service. This often is referenced as QoS).</p>
- 		<p>2 main ways to measure network are: latency and 
- 			bandwidth.
- 			Latency is time it takes message to get from source
- 			to destination. Unit of time and measured in 
- 			milliseconds. Ways to reduce latency: reduce 
- 			number of nodes. Bandwidth amount of information 
- 			that can be transmitted per unit time. It's the
- 			rate you can send info. Measured in bits per second
- 			. eg., Mbps. A bit is the smallest unit of 
- 			information (eg, 0 and 1, yes and no, etc). With 
- 			more bits, can encode different things. Every time 
- 			you add a bit, you double the number things you 
- 			can distinguish. <a href "http://www.cnet.com/internet-speed-test/">cnet internet speed test </a> measures the bandwidth you're getting over your internet.</p>
- 		<p>Protocol is set of rules that tell you how 2 
- 			entities can talk to each other, like a client and 
- 			server. Client has to send message in a particular 
- 			way -- hypertext transfer protocol or HTTP. 2 main 
- 			messages: "Get" and the name of the object you want 
- 			to get. This is the call the Client makes. Server 
- 			gets the message, runs code, finds file, runs code, 
- 			and sends back a response which is the content of
- 			the requested object.</p>
- 		<p><em>Making the Internet Work for You<em> in lesson 
- 		4.2 revisits the HTML structure or DOM and focuses on 
- 		generating the content of the body tag. <b>URL</b> is Uniform Resource Locator. Made up of protocol (http://), host (www.udacity.com) followed by the path. <b>Query Parameter</b> is a Get parameter. Example would be like "/foo?p=1&q=neat". "?" is used for the first parameter, "&" is used to separate for every parameter after. 
- 		<div class="Importanttips"  Interesting story why foo is used in query parameter <a href "http://programmers.stackexchange.com/questions/69788/what-is-the-history-of-the-use-of-foo-and-bar-in-source-code-examples">history of "foo" and "bar"</a> </div>
- 		<p>Next piece of URL is "#fragment". Exists in browser only and not sent to server. when there are query parameters, fragment follows. <p> <b>Port</b> in a URL you need address of machine and a port to make an internet connection. Between "localhost" and "path" is the port. Port default =80. "http://localhost:8000/" is typical.</p>
- 		<p>HTTP which is the main protocol of the web. Request from you browser begins with a request line. <b>Request line</b> is made up of Method - Path - Version such as "GET" and "POST", the path which includes up through parameters but does not include the fragment, and version which is usually HTTP/1.1 or 1.0. Note that the path is a relative path. You could also specify the full path which would start with the http link through to the path and parameters.</p>
- 		Request link also includes or followed by headers (name: value). "Host" as in "Host: www.example.com" which is required in 1.1. Webservers may have multiple names so this is necessary. Next header is "User-Agent:" as in "User-Agent= chrome" which is who is making the request (i.e., what type of machine). User agent important because it helps you control who has access and how they can use your site. Always use User-Agents appropriately when using your web software.</p>
- 		<p><em>HTTP Responses</em> looks similar to request. Status line (HTTP/1.1) - status code (200 which is ok, or 302 found or 404 not found or 500 server error) - Reason phrase is the Status code verbiage such as ok, found, not found, server error. Status line is followed by a number of headers. Some are required, or assumed. "Date:", "Server:" which should be hidden, "Content-Type:" like text/html, "Content-Length".</p>
- 		<p><b>Servers</b> purpose is to respond to Client request. 2 types which are Static or pre-written file like an image; and Dynamic where response built on the fly by program that is running. Most content today is dynamic and built by programs called web applications which is what we'll be building. </p>
- 		<p>
- 		HTML forms allows you to create an entry space using the tag form. input is the tag that can take a couple of attributes. like input name. When press enter or click submit, you are submitting a form. URLs can't have spaces in theme so your browser will enter spacers such as better+flight+search. User "password" input type to collect passwords but will not be secure. Use "checkbox" with name to display checkbox. Use "radio" and give same name so can only select one option. "label" attribute lets you label each box. 
-
-
-
 	</div>
 	</body>
 </html>	      
