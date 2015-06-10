@@ -533,8 +533,7 @@
  		<p>URL or Uniform Resource Locator is made up of protocol (http://), host (www.udacity.com), and path.</p> 
  		<p>Query Parameter is in the URL such as the Get parameter. Example would be like "/foo?p=1&q=neat". "?" is used for the first 
  			parameter, "&" is used to separate for every parameter after. Name = value.</p> 
- 		<div class="Importanttips"  Interesting story why foo is used in query parameter <a href "http://programmers.stackexchange.
- 		com/questions/69788/what-is-the-history-of-the-use-of-foo-and-bar-in-source-code-examples">history of "foo" and "bar"</a> </div>
+ 		<div class="Importanttips">  Interesting story why foo is used in query parameter <a href "https://programmers.stackexchange.com/questions/69788/what-is-the-history-of-the-use-of-foo-and-bar-in-source-code-examples">history of "foo" and "bar"</a> </div>
  		<p>"#fragment" is next in the URL path. It exists in the browser only and not sent to server. when there are query parameters, 
  		fragment follows.</p>
  		<p>Port - to make an internet connection in a URL you need the address of a machine and a port. Between "localhost" and "path" is 
@@ -567,7 +566,7 @@
  			side so it knows when it receives junk or bad data.  </p>	
  		<p> Limiting values that the user can select doesn't protect against someone using a form with bad data to post that bad data to 
  			your server. You have to have a way to verify the validity of the input and send error with error message if invalid.</p>  
- 		<p>String substitution: Use to avoid repetition such as if we want to return a lot o bold content without continually using bold 
+ 		<p>String substitution: Use to avoid repetition such as if we want to return a lot of bold content without continually using bold 
  			tags. So instead use "<b>%s</b>" % .
  			
  		 
@@ -587,13 +586,22 @@
  		 <p> HTML Templates - Separate differen type of code, make more readable code, make a more secure website, and make html easier to 
  		 	modify. Use Template libraries like jinja2 to build complicated strings. </p>
  		 <p> Variable Substitution - in templates allows you to use variables to populate values in an HTML document using tags.</p>
- 		 <p> Statement Syntax and Loop Syntax - needs reiew</p>
- 		 <p> Template Inheritance - needs review</p>
+ 		 <p> Statement Syntax and Loop Syntax - fill in more here</p>
+ 		 <p> Template Inheritance - fill in more here this is practice</p>
+ 		   <head>
+ </div>
 
+  <div class="Lesson">
+     <div>
+     	<h1>Enter your favorite Intro to Programming Topic</h1>
+     </div>
+       <div class="lessontext">
 
+ 		{% block content %}
+    	{% endblock %}
+    </div>
+    </body>
+ </html>
 
-
-	</div>
-	</body>
-</html>	      
+	      
 		    
