@@ -5,8 +5,12 @@ api_version: 1
 threadsafe: yes
 
 handlers:
--url: /css
- static_dir: css
+
+- url: /screenshots
+  static_dir: screenshots
+
+- url: /css
+  static_dir: css
 
 - url: /favicon\.ico
   static_files: favicon.ico

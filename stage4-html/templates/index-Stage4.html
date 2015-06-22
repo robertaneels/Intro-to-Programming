@@ -1,19 +1,44 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8"/>
-		<link rel="stylesheet" type="text/css" href="style4.css">
-		<title>Intro to Programming Notes </title>
-	</head>
-	<body>
+{% extends "base.html"%}
+{% block content %}
 		<div class="header">
-		  <h1>
-		  	Intro to Programming Highlights
-		  </h1>
+		<form>
+			<h1>Add Comments or Favorite Topic</h1>
+		<label><h3>Comment</h3>
+		<input type="text" name="comment">
+		<label><h3>Nickname</h3>
+		<input type="text" name = "nickname">
+		<br>
+		
+	
+		{%if comments%}
+			{%for comment in comments%}
+			<input type="text" name="comment" value= "{{comment}}">
+			{%endfor%}
+		{%endif%}
+		
+		{%if nicknames%}
+			{%for nickname in nicknames%}
+			<input type="text" name="nickname" value="{{nickname}}">
+			{%endfor%}
+		{%endif%}
+		<button>Add</button>
+
+		{%if comments%}
+			<br>
+			<br>
+			<h2>Comments</h2>
+				<ul>
+				{% for comment in comments%}
+					<li>{{comment}}</li>
+				{%endfor%}
+				</ul>
+
+		{%endif%}
+		</form>
 		</div>
 
 		<div class="Lesson">
-		  <h1>Stage 1 Make your Web Page: Lesson 1 Notes</h1>
+		  <h2 id="stage-1">Stage 1: HTML and Web Basics</h2>
 		</div>
 
 		<div class = "Lessontext">
@@ -21,13 +46,6 @@
 		     Programming is very literal. You have to tell the
 		     computer exactly what to do so that you get the 
 		     results you want.
-		      
-		     No doubt this is a challenge because our thought
-		     processing in our work and personal lives  use 
-		     assumptions and skip steps to quickly make decisions
-		     and act on them. I look forward to retraining my 
-		     brain to be more literal, to think and work like a 
-		     programmer.Here is what I've learned so far:
 		    </p>
 		    <p>
 		    <a href="https://en.wikipedia.org/wiki/HTML">HTML</a> 
@@ -42,7 +60,6 @@
 		    places a box around the text<br>
 		    much like a text box drawn in Word or Power point.
 		 	</p>
-
 		    <p>
 		    <b>Void</b> tags,such as <em>break</em>, do not 
 		    require closing tags whereas other tags such as 
@@ -50,24 +67,17 @@
 		    tag with an /
 		    at the end of the text. If a closing tag is not used 
 		    where appropriate,<br>
-		    then <b>everything after the opening tag will take on 
+		    then everything after the opening tag will take on 
 		    the same style or attribute and there will be no 
-		    terminating point.<br>
-		    Like shown here.</b>
-		    </p>                            
+		    terminating point.<br>                          
 		</div>                         
-		<div class="Lesson">
-		  <h1>Stage 1 Make Your Web Page: Lesson 2 Notes</h1>
-
-		</div> 
+		
 		<div class = "Lessontext">   
-		     <p>Where to begin? I remember most what I learned 
-		     	last and that is <em>"Boxes Boxes Boxes!!!"</em> 
-		     	Breaking down pages into boxes to be identified, 
-		     	sized, and characterized is an important step to
-		     	web development.
-		     </p>
-		          
+		     <em>"Boxes Boxes Boxes!!!"</em> 
+		     Breaking down pages into boxes to be identified, 
+		     sized, and characterized is an important step to
+		     web development.
+		     </p> 
 		     <p>Think of HTML as the house or structure, CSS as
 		     the styling or decor or architecture of the house, 
 		     and Java Script as the Interactive components that 
@@ -78,17 +88,9 @@
 		     HTML creates the elements of the <b>DOM</b>.
 		     </p>
 		 </div>
-		          
-		 <div class="Lesson">
-		  <h1>Stage 1 Make Your Web Page: Lesson 3 Notes</h1>
-		 </div>   
+		           
 		 <div class = "Lessontext">           
-		     <p>Contrary to popular opinion <a href= "https://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS</a> 
-		     	here <b>does not</b> refer to The College of St.
-		     	Scholastica which is an independent private college
-		     	based in Duluth, Minnesota with campuses across the
-		     	state. 
-		     What it does refer to however is the styling-- 
+		     CSS is the styling-- 
 		     Cascading Stying Sheets-- used to apply to HTML 
 		     documentation. It uses the concept of <em>inheritance
 		     </em> where descendant elements inherit text related
@@ -150,13 +152,11 @@
 			<p> Developer Tools are a nifty way to view you site, 
 			code and changes at the same time. Also use these 
 			links to verify your page complies with HTML and CSS 
-			standards.Click here 
+			standards.Click here: 
 			<a href="http://validator.w3.org/#validate_by_input">
 			
-			To verify HTML</a> and here
-			<a href="http://jigsaw.w3.org/css-validator/#validate_by_input">
-			
-			To verify CSS</a>
+			To verify HTML</a> and here:
+			<a href="http://jigsaw.w3.org/css-validator/#validate_by_input">To verify CSS</a>
 			</p>
 			<div class=image> <div class ="app.png">                 <img src="app.png" alt="This is a screenshot">
 		</div> 	     
@@ -164,8 +164,8 @@
 		         		
 		</div>	
 		<div class="Lesson">
-			<h1>Stage 2 Automate Your Page: Lesson 1 Notes</h1>
- 		</div>   
+		  <h2 id="stage-2">Stage 2: Automate Your Page</h2>
+		</div> 
  		<div class = "Lessontext">
       		<p>Programming is the core of computer science. A 
       			computer 
@@ -196,10 +196,7 @@
         		Also an Expression can be made another expression by
         		using parentheses.
       		</p>
-        </div> 
- 		<div class="Lesson">
-			<h1>Stage 2 Automate Your Page: Lesson 2 Notes</h1>
- 		</div>   
+        </div>  
  		<div class = "Lessontext">
     		<p>Variables and strings allow you to more easily and 
     			cleanly code for searching web documents.
@@ -225,10 +222,7 @@
         			position of searching a target subsequence. 
       			</ul>
     		   
-    	</div>         
-		<div class="Lesson">
-		<h1>Stage 2 Automate Your Page: Lesson 3 Notes</h1>
- 		</div>   
+    	</div>          
  		<div class = "Lessontext">
       
     		<p>Using Procedures is about matching inputs to outputs.
@@ -264,9 +258,6 @@
       			<em>Output</em> is 1874161<br>   
       		</div>
       	</div>
-  		<div class="Lesson">
-    	<h1>Stage 2 Automate Your Page: Lesson 4 Notes</h1>
-  		</div>   
  		<div class = "Lessontext">
  		     
     		<p>This lesson teaches decisions and repetitions using
@@ -311,8 +302,8 @@
 			</div>
 		</div>
 		<div class="Lesson">
-			<h1>Stage 3: Lesson 0 Notes - "Power of Abstraction"</h1>
- 		</div>   
+		  <h2 id="stage-3">Stage 3: Power of Abstraction</h2>
+		</div>  
  		<div class = "Lessontext">
  		<p> Hiding detail in programming is called 
  		<em>Abstraction</em>. 
@@ -323,17 +314,11 @@
  		"Functions" are other functions that demonstrate Abstraction.
  		This lesson covers Abstraction
  		as well as Classes and Object oriented programming.  
-		</div>
-		<div class="Lesson">
-			<h1>Stage 3 Add Videos to Your Page: Lesson 1</h1>
- 		</div>   
+		</div>  
  		<div class = "Lessontext">
- 		<p> This lesson uses 2 projects to learn using functions. The
- 		best technique When you go about building a program is to 
- 		first 
- 		write in plain english what steps you would take to get to 
- 		the 
- 		end result. As an example</P>
+ 		<p> The best technique When you go about building a program is to 
+ 		first write in plain english what steps you would take to get to 
+ 		the end result. As an example</P>
  		<div class ="example">
  			<ul>
  			<li>wait for 2 hours<br>
@@ -364,9 +349,8 @@
  		    libraries to find out what the functions inside them 
  		    will do
  		     and see how they help us create our code.</p>
- 		<p> Functions can help make things easier. For the 2nd 
- 			project 
- 			to decode a message, "import OS" or "import os.path". 
+ 		<p> Functions can help make things easier.  
+ 			To decode a message, "import OS" or "import os.path". 
  			Steps
  			to take to rename a bunch of files would be:
  			<ul>
@@ -394,14 +378,8 @@
  			Hiding of detail behind the functions in computer 
  			science is
  			called "Abstraction".</p>
- 		<p> Start by creating a new python file, add functions 
- 			writing
- 			code one line at a time. </p>
 
-		</div>     
-		<div class="Lesson">
-			<h1>Stage 3 Add Videos to Your Page: Lesson 2</h1>
- 		</div>   
+		</div>      
  		<div class = "Lessontext">
  		<p> This lesson teaches use of <b>Classes</b> by introducing 
  			"turtle" to create shapes. When you import a <b>Class</b>
@@ -440,8 +418,8 @@
 			instances of the TwilioRestClient to send text messages.
 		</p>
 		
-		<p> Also addressed in the Lesson 2 series are "Built in 
-			Functions" in Python, such as <b>Open</b> which
+		<p> "Built in Functions" exist in Python, such as <b>Open</b> 
+			which
 			returns the "object" of the file type.
 			<div class = "example">
 			quotes = open (file_location)<br>
@@ -466,10 +444,7 @@
     	 Urlopen is a function inside of it.
  		</p>   
     	
-	</div>
-		<div class="Lesson">
-			<h1>Stage 3 Add Videos to Your Page: Lesson 3</h1>
- 		</div>   
+	</div> 
  		<div class = "Lessontext">
  		<p> Here we learn how to build our own Class, such as the 
  			class 
@@ -483,10 +458,10 @@
  			share these 
  			variables to determine their attribute. There are pre-
  			existing class variables such as "__doc__". <b>Instance 
- 			Variables</b> 
+ 			Variables</b></p>
  		<p><b>Constructor</b> is the thing behind an instance or 
  			"Init" function that allows you to call on it to do some 
- 			kind of action.
+ 			kind of action.</p>
  		<p><b>Instance Method</b> are functions inside a Class that 
  			allow you to create instances of a class by using the 
  			"self"
@@ -494,114 +469,110 @@
  			as 
  			"Avator" or "Toy_Story". Behind the scenes it sets aside 
  			memory for an instance with its own variables called <b> 
- 			Instance Variables </b>
+ 			Instance Variables </b></p>
  		<p><b>Inheritance</b> is the concept used with Parent/Child 
  			relationships where attributes are carried from Class to
- 			 each of its Instances. As an example, a 
-		
+ 			 each of its Instances.  
+		</p>
 		<div class = "Importanttips">
       		<p>Good to Know! If you Google Python Style Guide,
       		 you'll 
       		find conventions on how to write programs.
     		</p>
-		</div>
+    	</div>	
+	</div>
 		<div class="Lesson">
-			<h1>Stage 4 Let Anyone Modify Your Webpage</h1>
- 		</div>   
+		  <h2 id="stage-4">Stage 4: Let Anyone Modify Your Webpage</h2>
+		</div>   
  		<div class = "Lessontext">
  		<p>A<b>Network</b> is a group of entities that can
  		 communicate even though they are not directly 
  		 connected. Things that make up a network are message
  		 and bits, routers, and rules for deciding who gets 
  		 to use the resources (QoS)<p>
- 		 <b>Latency<b> measures the time (milliseconds) it 
+ 		 <b>Latency</b> measures the time (milliseconds) it 
  		 	takes for a message to move from the source to
  		 	destination in a network.
- 		 <b>Bandwidth<b> is the amount of information that 
+ 		 <b>Bandwidth</b> is the amount of information that 
  		 	can be transmitted per unit of time (bps). 
  		 	<a href "http://www.cnet.com/internet-speed-test/">cnet internet speed test </a> measures the bandwidth you're getting over 
  		 	your internet.</p>
  			Adding more nodes and adding more bits are ways to reduce latency and increase number of things you can distinguish 
  			respectively.</p>
  		
- 		<p><b>Protocol<b> is set of rules that tell you how 2 
+ 		<p><b>Protocol</b> is set of rules that tell you how 2 
  			entities can talk to each other, like a client 
  			and server. Client uses a protocol -- HTTP -- to send a message. The server gets the message, runs code, finds file, runs code
  			and sends back a response.</p>
- 		<p>HTML documents - contain a DOM structure: doctype; opening and closing HTML tags; the head which contains title, meta-data, java 
+ 		<p><b>HTML documents</b> - contain a DOM structure: doctype; opening and closing HTML tags; the head which contains title, meta-data, java 
  		script, css cscript, etc.; and the body tag which contains the content of what appears on the webpage.
- 		<p>URL or Uniform Resource Locator is made up of protocol (http://), host (www.udacity.com), and path.</p> 
- 		<p>Query Parameter is in the URL such as the Get parameter. Example would be like "/foo?p=1&q=neat". "?" is used for the first 
+ 		<p><b>URL</b> or Uniform Resource Locator is made up of protocol (http://), host (www.udacity.com), and path.</p> 
+ 		<p><b>Query Parameter</b> is in the URL such as the Get parameter. Example would be like "/foo?p=1&q=neat". "?" is used for the first 
  			parameter, "&" is used to separate for every parameter after. Name = value.</p> 
- 		<div class="Importanttips">  Interesting story why foo is used in query parameter <a href "https://programmers.stackexchange.com/questions/69788/what-is-the-history-of-the-use-of-foo-and-bar-in-source-code-examples">history of "foo" and "bar"</a> </div>
- 		<p>"#fragment" is next in the URL path. It exists in the browser only and not sent to server. when there are query parameters, 
+ 		
+ 		<p><b>"#fragment"</b> is next in the URL path. It exists in the browser only and not sent to server. when there are query parameters, 
  		fragment follows.</p>
- 		<p>Port - to make an internet connection in a URL you need the address of a machine and a port. Between "localhost" and "path" is 
+ 		<p><b>Port</b> - to make an internet connection in a URL you need the address of a machine and a port. Between "localhost" and "path" is 
  		the port. Port default =80. "http://localhost:8000/" is typical.</p>
- 		<p>HTTP which is the main protocol of the web. Request from your browser begins with a request line. <b>Request line</b> is made up 
- 			of Method - Path - Version such as "GET" (used to get a document) and "POST", the path which includes up through parameters but
- 			 does not include the fragment, and version which is usually HTTP/1.1 or 1.0. Note that the path is a relative path. You could 
- 			 also specify the full path which would start with the http link through to the path and parameters.So the host is used for 
- 			 making the connection and the path is used for making the request.</p>
+ 		<p><b>HTTP</b> which is the main protocol of the web. Request from your browser begins with a request line. <b>Request line</b> is made up 
+ 		of Method - Path - Version such as "GET" (used to get a document) and "POST", the path which includes up through parameters but
+ 		does not include the fragment, and version which is usually HTTP/1.1 or 1.0. Note that the path is a relative path. You could 
+ 		also specify the full path which would start with the http link through to the path and parameters.So the host is used for 
+ 		making the connection and the path is used for making the request.</p>
 
- 		<p>Request link also includes headers (name: value). "Host" as in "Host: www.example.com" which is required in 1.1. Webservers may
+ 		<p><b>Request link</b> also includes headers (name: value). "Host" as in "Host: www.example.com" which is required in 1.1. Webservers may
  		 have multiple names so this is necessary. Next header is "User-Agent:" as in "User-Agent= chrome" which is who is making the 
  		 request (i.e., what type of machine). User agent important because it helps you control who has access and how they can use your 
  		 site. Always use User-Agents appropriately when using your web software.</p>
- 		<p>HTTP Responses look similar to request line. Status line (HTTP/1.1) - status code (200 which is ok, or 302 found or 404 not 
+ 		<p><b>HTTP Responses</b> look similar to request line. Status line (HTTP/1.1) - status code (200 which is ok, or 302 found or 404 not 
  			found or 500 server error) - Reason phrase is the Status code verbiage such as ok, found, not found, server error. Status line 
  			is followed by a number of headers. Some are required, or assumed. "Date:", "Server:" which should be hidden, "Content-Type:" 
  			like text/html, "Content-Length".</p>
- 		<p> Servers - purpose is to respond to Client request. 2 types which are Static or pre-written file like an image; and Dynamic 
+ 		<p><b>Servers</b> - purpose is to respond to Client request. 2 types which are Static or pre-written file like an image; and Dynamic 
  			where response built on the fly by program that is running. Most content today is dynamic and built by programs called web 
  			applications which is what we'll be building. </p>
  		<p>
- 		HTML Forms - allow you to create an entry space using the tag form. Input is the tag that can take a couple of attributes. Like 
+ 		<b>HTML Forms</b> - allow you to create an entry space using the tag form. Input is the tag that can take a couple of attributes. Like 
  		input name. When press enter or click submit, you are submitting a form. URLs can't have spaces in theme so your browser will enter 
  		spacers such as better+flight+search. User "password" input type to collect passwords but will not be secure. Use "checkbox" with 
  		name to display checkbox. Use "radio" and give same name so can only select one option. "label" attribute lets you label each box.
  		</p>
  		
- 		<p> Validation allows you to make your website safe from hackers using input validation. Validation means verifying on the server 
- 			side so it knows when it receives junk or bad data.  </p>	
+ 		<p> <b>Validation</b> allows you to make your website safe from hackers using input validation. Validation means verifying on the server 
+ 		side so it knows when it receives junk or bad data.  
+ 		</p>	
  		<p> Limiting values that the user can select doesn't protect against someone using a form with bad data to post that bad data to 
- 			your server. You have to have a way to verify the validity of the input and send error with error message if invalid.</p>  
- 		<p>String substitution: Use to avoid repetition such as if we want to return a lot of bold content without continually using bold 
- 			tags. So instead use "<b>%s</b>" % .
+ 		your server. You have to have a way to verify the validity of the input and send error with error message if invalid.</p>  
+ 		<p><b>String substitution</b> - Use to avoid repetition such as if we want to return a lot of bold content without continually using bold 
+ 		tags. So instead use "<b>%s</b>" % .
  			
- 		 
- 		 (quoted from lesson) write_form takes two parameters, self and error. But notice that it says error="". This is an example of an 
- 		 optional parameter. It means that you can specify a value for the error parameter when you call the function but you don't have to.
- 		 If you don't specify a value, it will take a default value
 
- 		 Input values: 
- 		 input type = 'text' input value = 'value'
-
- 		 Escaping will prevent data entered from messing up our html . Such as &lt;<b>&gt;.	You can also import cgi in python which will 
+ 		 Escaping will prevent data entered from messing up our html . Such as &lt;<b>&gt;</b>.	You can also import cgi in python which will 
  		 apply the escape command where needed. 
 
  		 Redirection: Used to allow you to share success link and reload page. Directs user to a success page. Also reloading the success 
  		 page doesnt resubmit the form. and to have distinct pages for forms and successes </p>
 
- 		 <p> HTML Templates - Separate differen type of code, make more readable code, make a more secure website, and make html easier to 
+ 		 <p><b> HTML Templates</b> - Separate different type of code, make more readable code, make a more secure website, and make html easier to 
  		 	modify. Use Template libraries like jinja2 to build complicated strings. </p>
- 		 <p> Variable Substitution - in templates allows you to use variables to populate values in an HTML document using tags.</p>
- 		 <p> Statement Syntax and Loop Syntax - fill in more here</p>
- 		 <p> Template Inheritance - fill in more here this is practice</p>
- 		   <head>
- </div>
+ 		 <p><b>Variable Substitution</b> - in templates allows you to use variables to populate values in an HTML document using tags. Statement Syntax and Loop Syntax are methods for achieving this kind of substitution. </p>
+ 		
+ 		 <p><b> Template Inheritance</b> - use one template for setting up the page, and subtemplates that redefine the content. Again demonstrates the concept of abstraction in that it minimizes code to avoid repetition by projecting a template format for the subtemplates containing content.</p>
 
-  <div class="Lesson">
-     <div>
-     	<h1>Enter your favorite Intro to Programming Topic</h1>
-     </div>
-       <div class="lessontext">
+ 		 <div class="Importanttips">  
+ 		 	<li>Always automatically escape variables</li>
+ 		 	<li>Minimize code in templates</li>
+ 		 	<li>Minimize html in code</li>
+ 		 </div>
+ 		
+ 	</div>
 
- 		{% block content %}
-    	{% endblock %}
-    </div>
-    </body>
- </html>
+	
+{%endblock%}	
+	
+
+  
+ 
 
 	      
 		    

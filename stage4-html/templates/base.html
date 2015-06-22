@@ -1,18 +1,26 @@
-
-
+<!DOCTYPE html>
 <html>
 	<head>
-		<title>Favorite Topics</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="css/style4.css">
+
 	</head>
-
-	<body style="margin: 0" >
-		<h1 style="background-color: #ddd; color:#888; margin: 0 height: 50px">
-			Intro to Programming Survey
-		</h1>
-
-		{%block content%}
-		{%endblock%}
-
-	</body>
+	<header>
+	<div class= "header">
+	<h1>Intro to Programming Notes</h1>
+	</div>
+		<div class="navigation-bar">
+			<ul>
+				<li><a href="#stage-1"><h3>Stage 1</h3></a></li>
+				<li><a href="#stage-2"><h3>Stage 2</h3></a></li>
+				<li><a href="#stage-3"><h3>Stage 3</h3></a></li>
+				<li><a href="#stage-4"><h3>Stage 4</h3></a></li>
+			</ul>
+		</div>
+	</header>
+	<body>
+	{% block content %}
+	{% endblock %}
+	</body>	
 
 </html>

@@ -20,11 +20,17 @@ import jinja2
 
 import webapp2
 import cgi
+import urllib
+from google.appengine.ext import ndb
 
-template_dir = os.path.join(os.path.dirname ('stage4-html'), 'templates')
-jinja_env=jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir), autoescape= True)
 
 
+template_dir = os.path.join(os.path.dirname ('base.html'), 'templates')
+jinja_env=jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir), extensions=['jinja2.ext.autoescape'], autoescape= True)
+
+
+
+    
 
 class Handler(webapp2.RequestHandler):
     def write(self, *a,**kw):
@@ -37,16 +43,76 @@ class Handler(webapp2.RequestHandler):
     def render(self, template, **kw):
         self.write(self.render_str(template,**kw))
 
-class MainPage(Handler):
-    def get(self):
-        items = self.request.get_all("topic")
-        self.render("favorite_topic.html", items = items)
 
+
+
+#Creating modify page object by defining class. 
+class ModifyPage(ndb.Model):
+	nickname=ndb.StringProperty(indexed=False)
+	comment = ndb.StringProperty(indexed=False)
+	date = ndb.DateTimeProperty(auto_now_add=True)
+
+
+
+
+class MainPage(Handler):
   
+    def get(self):
+        self.render("index-Stage4.html")
+ 
+        
+
+    def get(self):
+            #Creating a key for CommentsBook but I don't know what goes in here
+            commentbook_key = ndb.Key('CommentBook', 'modify_page')
+
+            #instantiates modify page object
+            modify_page = ModifyPage(nickname='nickname here',comment='Favorite topic or comment here') 
+		
+
+	    modify_page_query = ModifyPage.query(ancestor=commentbook_key).order(-ModifyPage.date)
+	    modify_page = modify_page_query.fetch()
+
+            
+	    self.render("index-Stage4.html", modify_page=modify_page)
+
+
+
+
+   
+
+class CommentBook(webapp2.RequestHandler):
+	def post(self):
+
+                #writes object to Google Datastore server
+
+                #pull a reference object to ModifyPage object to pull the objects from Google Datastore. Queries all objects in database.Use fetch
+                #to limit query to specified number.
+		query=ModifyPage.query()
+                #page_comments = query.fetch(5)
+
+		comment=self.request.get('comment')
+		nickname=self.request.get('nickname')
+
+		#Test to see nickname and comment
+		#print '####'
+		#print nickname, comment
+		#print '####'
+                
+    
+		if comment and nickname:
+                    modify_page = ModifyPage(nickname=nickname, comment=comment)
+                    modify_page.put()
+
+                    import time
+                    time.sleep(.1)
+                    self.redirect('/')
+
+		
+		else:
+                    self.redirect('/?error=Please fill out nickname and comment sections!')
+
 
 
     
-
-
-
-app = webapp2.WSGIApplication ([('/', MainPage),],debug=True)
+app = webapp2.WSGIApplication ([('/', MainPage), ('/sign', CommentBook)],debug=True)
